@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Button, ModalBody, CloseButton } from "react-bootstrap";
 import { Login } from "../pages/Login";
 import ModalHeader from "react-bootstrap/ModalHeader";
+import { LoginNameField } from "./login/LoginNameField";
 
 export type LoginModalProps = {
   show?: boolean;
@@ -22,7 +23,24 @@ export const LoginModal = ({ show, hideModal }: LoginModalProps) => {
       </ModalHeader>
       <form>
         <ModalBody>
-          <Login />
+          <LoginNameField
+            label={"Email"}
+            type={"email"}
+            controlId={"user_email"}
+            className={"mb-3"}
+          />
+          <LoginNameField
+            label={"Password"}
+            type={"password"}
+            controlId={"user_password"}
+            className={"mb-3"}
+          />
+          <LoginNameField
+            label={"Keep me logged in"}
+            type={"checkbox"}
+            controlId={"keep_login"}
+            className={"mb-3"}
+          />
         </ModalBody>
         <Modal.Footer className={"justify-content-start"}>
           <Button
@@ -31,9 +49,6 @@ export const LoginModal = ({ show, hideModal }: LoginModalProps) => {
             onClick={() => console.log("login ")}
           >
             Log in
-          </Button>
-          <Button variant={"danger"} onClick={hideModal} type={"reset"}>
-            Cancel
           </Button>
         </Modal.Footer>
       </form>

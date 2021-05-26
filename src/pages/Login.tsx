@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import styled from "styled-components";
+import { LoginNameField } from "../components/login/LoginNameField";
 
 const Control = styled(Form.Control)`
   border-radius: 0;
@@ -8,21 +9,24 @@ const Control = styled(Form.Control)`
 
 export const Login = () => (
   <Form>
-    <Form.Group className="mb-3" controlId="formBasicEmail">
-      <Form.Label>Email address</Form.Label>
-      <Control type="email" placeholder="Enter email" />
-      <Form.Text className="text-muted">
-        We'll never share your email with anyone else.
-      </Form.Text>
-    </Form.Group>
-
-    <Form.Group className="mb-3" controlId="formBasicPassword">
-      <Form.Label>Password</Form.Label>
-      <Control type="password" placeholder="Password" />
-    </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-      <Form.Check type="checkbox" label="Keep me logged in" />
-    </Form.Group>
+    <LoginNameField
+      label={"Email"}
+      type={"email"}
+      controlId={"user_email"}
+      className={"mb-3"}
+    />
+    <LoginNameField
+      label={"Password"}
+      type={"password"}
+      controlId={"user_password"}
+      className={"mb-3"}
+    />
+    <LoginNameField
+      label={"Keep me logged in"}
+      type={"checkbox"}
+      controlId={"keep_login"}
+      className={"mb-3"}
+    />
     <Button variant="primary" type="submit">
       Submit
     </Button>
